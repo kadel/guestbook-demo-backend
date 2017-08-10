@@ -1,0 +1,27 @@
+name: backend
+containers:
+  - image: tomaskral/kedge-demo-backend:v1
+    env:
+      - name: MONGODB_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: mongodb-user
+            key: MONGODB_PASSWORD
+      - name: MONGODB_USERNAME
+        valueFrom:
+          configMapKeyRef:
+            name: mongodb-user
+            key: MONGODB_USERNAME
+      - name: MONGODB_DATABASE
+        valueFrom:
+          configMapKeyRef:
+            name: mongodb-user
+            key: MONGODB_DATABASE
+      - name: MONGODB_SERVER
+        valueFrom:
+          configMapKeyRef:
+            name: mongodb-user
+            key: MONGODB_SERVER
+services:
+  - ports:
+    - port: 3000
