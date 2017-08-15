@@ -1,6 +1,6 @@
 name: mongodb
 containers:
-  - image: bitnami/mongodb
+  - image: bitnami/mongodb:3.4.7-r0
     envFrom:
       - secretRef:
           name: mongodb-admin
