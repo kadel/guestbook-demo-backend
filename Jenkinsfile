@@ -1,8 +1,6 @@
 node {
   stage ('Setup') {
-    sh 'env'
-    sh 'ls -lah'
-    sh 'pwd'
+    sh 'yum install -y golang'
   }
   stage('Build') {
     sh 'go build github.com/kadel/guestbook-demo-backend'
