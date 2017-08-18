@@ -1,4 +1,4 @@
-node ('golang') {
+node ('nodejs') {
   stage ('Setup') {
     sh 'env'
     sh 'ls -lah'
