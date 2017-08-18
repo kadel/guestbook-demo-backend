@@ -3,7 +3,7 @@ node ('golang') {
     sh 'ls -lah'
     sh 'pwd'
     sh 'env'
-    sh 'ls -lah $HOME/go/bin/'
+    sh 'ls -lah $HOME/bin'
     sh 'go version'
   }
   stage('Build') {
