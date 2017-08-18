@@ -1,4 +1,4 @@
-node ('nodejs') {
+node {
   stage ('Setup') {
     sh 'env'
     sh 'ls -lah'
