@@ -1,7 +1,7 @@
-node {
-  // stage('Checkout') {
-  //   checkout scm
-  // }
+node ('golang') {
+  stage ('Setup') {
+
+  }
   stage('Build') {
     sh 'go build github.com/kadel/guestbook-demo-backend'
   }
