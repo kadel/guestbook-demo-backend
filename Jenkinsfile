@@ -1,4 +1,4 @@
-node {
+node ('golang') {
   stage ('Setup') {
     sh 'yum install -y golang'
   }
