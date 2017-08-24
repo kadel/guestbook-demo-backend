@@ -6,7 +6,7 @@ node ('maven') {
     sh 'chmod +x kedge'
   }
 
-  state('Run Kedge') {
+  stage('Run Kedge') {
     sh './kedge generate -f Kedge/'
   }
 }
