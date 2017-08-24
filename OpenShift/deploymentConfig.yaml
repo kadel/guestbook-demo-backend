@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: DeploymentConfig
+metadata:
+  name: guestbook-demo-backend
+spec:
+  replicas: 1
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        name: guestbook-demo-backend
+    spec:
+      containers:
+      - image: guestbook-demo-backend:latest
