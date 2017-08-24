@@ -1,4 +1,4 @@
-node {
+node ('maven') {
   stage ('Setup') {
     sh 'ls -lah'
     sh 'ls -lah guestbook-demo-backend'
