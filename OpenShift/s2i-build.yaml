@@ -1,0 +1,18 @@
+kind: "BuildConfig"
+apiVersion: "v1"
+metadata:
+  name: "guestbook-backend"
+spec:
+  source:
+    git:
+      uri: "https://github.com/kadel/guestbook-demo-backend"
+  strategy:
+    type: "Source"
+    sourceStrategy:
+      from:
+        kind: "ImageStreamTag"
+        name: "go-17-centos7:my" 
+  triggers:
+    - type: "GitHub"
+      github:
+        secret: secret
