@@ -7,6 +7,6 @@ node ('maven') {
   }
 
   stage('Run Kedge') {
-    sh './kedge generate -f Kedge/'
+    sh './kedge generate -f guestbook-demo-backend/Kedge/'
   }
 }
