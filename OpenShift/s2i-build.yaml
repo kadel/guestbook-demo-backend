@@ -1,18 +1,38 @@
-kind: "BuildConfig"
-apiVersion: "v1"
+# kind: ImageStream
+# apiVersion: v1
+# metadata:
+#   name: guestbook-demo-backend
+# spec:
+#   tags:
+#     - name: latest
+
+# ---
+
+kind: BuildConfig
+apiVersion: v1
 metadata:
-  name: "guestbook-backend"
+  name: guestbook-backend
 spec:
   source:
     git:
-      uri: "https://github.com/kadel/guestbook-demo-backend"
+      uri: https://github.com/kadel/guestbook-demo-backend
   strategy:
-    type: "Source"
+    type: Source
     sourceStrategy:
       from:
-        kind: "ImageStreamTag"
-        name: "go-17-centos7:my" 
+        kind: ImageStreamTag
+        name: go-17-centos7:my 
+  # output: 
+  #   to:
+  #     kind: ImageStreamTag
+  #     name: guestbook-demo-backend:latest
+  output:
+    to:
+      kind: "DockerImage"
+      name: "docker.io/tomaskral/guestbook-demo-backend:latest"
+    pushSecret:
+      name: "pushsecrets"
   triggers:
-    - type: "GitHub"
+    - type: GitHub
       github:
         secret: secret
