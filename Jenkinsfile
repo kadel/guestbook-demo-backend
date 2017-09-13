@@ -15,7 +15,7 @@ node ('maven') {
     // hack to trigger new deployment (https://github.com/kubernetes/kubernetes/issues/27081)
     Date date = new Date()
     String timestamp = date.format("HH:mm:ss.dd/MM/yyyy")
-    String patch = '{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"date\":\"' + timestamp + '\"}}}}}'
+    String patch = '{"spec":{"template":{"metadata":{"annotations":{"date":"' + timestamp + '"}}}}}'
     print patch
     sh 'kubectl patch deployment/backend -p ' + patch
   }
