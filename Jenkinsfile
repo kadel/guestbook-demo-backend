@@ -7,7 +7,7 @@ node ('maven') {
 
   stage('Build') {
     sh 'oc apply -f guestbook-demo-backend/OpenShift/s2i-build.yaml'
-    openshiftBuild(buildConfig: 'guestbook-backend', showBuildLogs: 'true')
+    openshiftBuild(buildConfig: 'guestbook-backend', showBuildLogs: 'true', checkForTriggeredDeployments: 'true')
 
   }
 
