@@ -7,7 +7,7 @@ node ('maven') {
   }
 
   stage('Build') {
-    sh 'oc create -f OpenShift/s2i-build.yaml'
+    sh 'oc create -f guestbook-demo-backend/OpenShift/s2i-build.yaml'
   }
 
   stage('Run Kedge') {
