@@ -17,6 +17,6 @@ node ('maven') {
     String timestamp = date.format("HH:mm:ss.dd/MM/yyyy")
     String patch = '{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"date\":\"' + timestamp + '\"}}}}}'
     print patch
-    sh 'kubectl patch deployment/backend -p patch'
+    sh 'kubectl patch deployment/backend -p ' + patch
   }
 }
