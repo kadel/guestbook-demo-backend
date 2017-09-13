@@ -7,11 +7,11 @@ node ('maven') {
 
   stage('Build') {
     sh 'oc apply -f guestbook-demo-backend/OpenShift/s2i-build.yaml'
-    openshiftBuild(buildConfig: 'guestbook-backend', showBuildLogs: 'true', checkForTriggeredDeployments: 'true')
-
+    openshiftBuild(buildConfig: 'guestbook-backend', showBuildLogs: 'true')
   }
 
   stage('Run Kedge') {
     sh './kedge generate -f guestbook-demo-backend/Kedge/ | oc apply -f -'
+    sh 'kubectl'
   }
 }
