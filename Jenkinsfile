@@ -6,6 +6,10 @@ node ('maven') {
     sh 'chmod +x kedge'
   }
 
+  stage('Build') {
+    sh 'oc create -f OpenShift/s2i-build.yaml'
+  }
+
   stage('Run Kedge') {
     sh './kedge generate -f guestbook-demo-backend/Kedge/'
     sh 'oc status'

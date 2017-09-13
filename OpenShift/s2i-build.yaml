@@ -1,3 +1,21 @@
+# go builder image for s2i
+
+apiVersion: v1
+kind: ImageStream
+metadata:
+  name: go-17-centos7
+spec:
+  tags:
+  - name: skip-download-when-vendored
+    from:
+      kind: DockerImage
+      name: quay.io/tomkral/go-17-centos7:skip-download-when-vendored
+
+
+---
+
+# output imagestream
+
 # kind: ImageStream
 # apiVersion: v1
 # metadata:
@@ -21,7 +39,7 @@ spec:
     sourceStrategy:
       from:
         kind: ImageStreamTag
-        name: go-17-centos7:my 
+        name: go-17-centos7:skip-download-when-vendored 
   # output: 
   #   to:
   #     kind: ImageStreamTag
