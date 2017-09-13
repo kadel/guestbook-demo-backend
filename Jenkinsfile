@@ -13,6 +13,6 @@ node ('maven') {
   stage('Deploy') {
     sh './kedge generate -f guestbook-demo-backend/Kedge/ | oc apply -f -'
     // hack to trigger new deployment (https://github.com/kubernetes/kubernetes/issues/27081)
-    sh 'kubectl patch deployment web -p "{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"date\":\"`date +'%s'`\"}}}}}"'
+    sh 'kubectl patch deployment backend -p "{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"date\":\"`date +'%s'`\"}}}}}"'
   }
 }
