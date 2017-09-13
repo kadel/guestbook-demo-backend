@@ -10,8 +10,9 @@ node ('maven') {
     openshiftBuild(buildConfig: 'guestbook-backend', showBuildLogs: 'true')
   }
 
-  stage('Run Kedge') {
+  stage('Deploy') {
     sh './kedge generate -f guestbook-demo-backend/Kedge/ | oc apply -f -'
-    sh 'kubectl'
+    // hack to trigger new deployment (https://github.com/kubernetes/kubernetes/issues/27081)
+    sh 'kubectl patch deployment web -p "{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"date\":\"`date +'%s'`\"}}}}}"'
   }
 }
