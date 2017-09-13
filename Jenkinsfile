@@ -14,7 +14,7 @@ node ('maven') {
     sh './kedge generate -f guestbook-demo-backend/Kedge/ | oc apply -f -'
     // hack to trigger new deployment (https://github.com/kubernetes/kubernetes/issues/27081)
     Date date = new Date()
-    String timestamp = date.format("HH:mm:ss dd/MM/yyyy")
-    sh 'kubectl patch deployment backend -p "{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"date\":\"' + timestamp + '\"}}}}}"'
+    String timestamp = date.format("HH:mm:ss.dd/MM/yyyy")
+    sh 'kubectl patch deployment/backend -p "{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"date\":\"' + timestamp + '\"}}}}}"'
   }
 }
