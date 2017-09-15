@@ -27,6 +27,6 @@ secrets:
 configMaps:
   - name: mongodb-user
     data:
-      MONGODB_USERNAME: user
+      MONGODB_USER: user
       MONGODB_DATABASE: db
       MONGODB_SERVER: mongodb:27017
