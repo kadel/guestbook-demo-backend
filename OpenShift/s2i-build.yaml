@@ -31,11 +31,12 @@ apiVersion: v1
 metadata:
   name: guestbook-backend
 spec:
-  source:
-    git:
-      uri: https://github.com/kadel/guestbook-demo-backend
+  # source:
+  #   git:
+  #     uri: https://github.com/kadel/guestbook-demo-backend
   strategy:
-    type: Source
+    # type: Source
+    type: Binary
     sourceStrategy:
       from:
         kind: ImageStreamTag
