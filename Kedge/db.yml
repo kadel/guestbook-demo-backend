@@ -1,6 +1,6 @@
 name: mongodb
 containers:
-  - image: bitnami/mongodb:3.4.7-r0
+  - image: openshift/mongodb-24-centos7
     envFrom:
       - secretRef:
           name: mongodb-admin
