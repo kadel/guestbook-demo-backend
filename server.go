@@ -139,6 +139,6 @@ func main() {
 	database = mongo.DB("db")
 
 	http.HandleFunc("/api/comments", handleComments)
-	log.Println("Server started foo: http://" + host + ":" + port)
+	log.Println("Server started: http://" + host + ":" + port)
 	log.Fatal(http.ListenAndServe(host+":"+port, nil))
 }
