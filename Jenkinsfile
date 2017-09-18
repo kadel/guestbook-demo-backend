@@ -12,6 +12,6 @@ node ('maven') {
   }
 
   stage('Deploy') {
-    sh './kedge generate -f guestbook-demo-backend/Kedge/ | oc apply -f -'
+    sh './kedge apply -f guestbook-demo-backend/Kedge/'
   }
 }
