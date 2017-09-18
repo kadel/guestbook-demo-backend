@@ -14,37 +14,17 @@ spec:
 
 ---
 
-# output imagestream
-
-# kind: ImageStream
-# apiVersion: v1
-# metadata:
-#   name: guestbook-demo-backend
-# spec:
-#   tags:
-#     - name: latest
-
-# ---
-
 kind: BuildConfig
 apiVersion: v1
 metadata:
   name: guestbook-backend
 spec:
-  # source:
-  #   git:
-  #     uri: https://github.com/kadel/guestbook-demo-backend
   strategy:
-    # type: Source
     type: Binary
     sourceStrategy:
       from:
         kind: ImageStreamTag
         name: go-17-centos7:skip-download-when-vendored 
-  # output: 
-  #   to:
-  #     kind: ImageStreamTag
-  #     name: guestbook-demo-backend:latest
   output:
     to:
       kind: "DockerImage"
