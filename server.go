@@ -35,6 +35,12 @@ type comment struct {
 func handleComments(w http.ResponseWriter, r *http.Request) {
 
 	switch r.Method {
+	case "OPTIONS":
+		w.Header().Set("Content-Type", "application/json")
+		w.Header().Set("Cache-Control", "no-cache")
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+		w.Write([]byte{})
 	case "POST":
 		text := r.FormValue("text")
 		author := r.FormValue("author")
@@ -62,6 +68,7 @@ func handleComments(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 		w.Header().Set("Cache-Control", "no-cache")
 		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 		w.Write(output)
 
 	case "GET":
@@ -81,6 +88,7 @@ func handleComments(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 		w.Header().Set("Cache-Control", "no-cache")
 		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 		w.Write(output)
 
 	default:

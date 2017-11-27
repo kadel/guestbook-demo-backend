@@ -1,6 +1,6 @@
 name: backend
 containers:
-  - image: tomaskral/guestbook-demo-backend:latest
+  - image: quay.io/tomkral/guestbook-demo-backend@sha256:1642bf98ffc96b824b6b63b65cd3240086762ba75d591c397a3c7976eacba470
     env:
       - name: MONGODB_PASSWORD
         valueFrom:
