@@ -1,6 +1,6 @@
 name: mongodb
 containers:
-  - image: openshift/mongodb-24-centos7
+  - image: centos/mongodb-32-centos7
     envFrom:
       - secretRef:
           name: mongodb-admin
