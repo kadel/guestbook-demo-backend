@@ -1,16 +1,21 @@
 
 # 1st Stage - build binary
 
-FROM fedora:26
+FROM bitnami/minideb:stretch
 
-RUN yum install -y golang make
-
+RUN apt-get update; apt-get install -y golang make
 ENV GOPATH="/go/"
-
 WORKDIR $GOPATH/src/github.com/kadel/kedge-demo/first/backend
 COPY . .
 
 RUN make build
+
+
+# 2th Stage - create image
+
+FROM bitnami/minideb:stretch
+
+COPY --from=0 /go/src/github.com/kadel/kedge-demo/first/backend/server /opt/api/
 
 EXPOSE 3000
 
@@ -20,4 +25,4 @@ ENV DATA_FILE /opt/api/data/comments.json
 RUN mkdir -p /opt/api/data/
 RUN chmod a+w  /opt/api/data/
 
-ENTRYPOINT ["/go/src/github.com/kadel/kedge-demo/first/backend/server"]
+ENTRYPOINT ["/opt/api/server"]
