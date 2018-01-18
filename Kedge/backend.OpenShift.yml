@@ -1,8 +1,8 @@
-name: backend
+name: guestbook-backend
 
 deploymentConfigs:
 - containers:
-    - image: ""
+    - image: " "
       env:
         - name: MONGODB_PASSWORD
           valueFrom:
@@ -26,6 +26,7 @@ deploymentConfigs:
               key: MONGODB_SERVER
       imagePullPolicy: Always
   triggers:
+    - type: "ConfigChange"
     - type: "ImageChange"
       imageChangeParams:
         automatic: true 
@@ -33,7 +34,7 @@ deploymentConfigs:
           kind: "ImageStreamTag"
           name: "guestbook-backend:latest"
         containerNames:
-          - "backend"
+          - "guestbook-backend"
 
 services:
   - ports:
