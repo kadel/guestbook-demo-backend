@@ -12,7 +12,7 @@ deployments:
             name: mongodb-user
       volumeMounts:
       - name: mongodb-data
-        mountPath: /bitnami
+        mountPath: /var/lib/mongodb
 
 services:
   - ports:

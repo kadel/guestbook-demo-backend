@@ -37,5 +37,5 @@ deploymentConfigs:
           - "guestbook-backend"
 
 services:
-  - ports:
-    - port: 3000
+  - portMappings:
+    - 3000
