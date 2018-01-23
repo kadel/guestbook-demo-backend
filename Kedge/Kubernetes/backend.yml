@@ -24,8 +24,6 @@ deployments:
             configMapKeyRef:
               name: mongodb-user
               key: MONGODB_SERVER
-      imagePullPolicy: Always
-
 services:
 - portMappings:
   - 3000
