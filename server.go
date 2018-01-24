@@ -111,9 +111,9 @@ func main() {
 		log.Fatal("You have to set MONGODB_PASSWORD")
 	}
 
-	mongoUser = os.Getenv("MONGODB_USERNAME")
+	mongoUser = os.Getenv("MONGODB_USER")
 	if mongoUser == "" {
-		log.Fatal("You have to set MONGODB_USERNAME")
+		log.Fatal("You have to set MONGODB_USER")
 	}
 
 	mongoDb = os.Getenv("MONGODB_DATABASE")

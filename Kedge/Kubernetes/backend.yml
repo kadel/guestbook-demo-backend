@@ -2,28 +2,12 @@ name: guestbook-backend
 
 deployments:
 - containers:
-    - image: tomaskral/guestbook-backend@sha256:710856de9aafd5a8ee17b4e315a2d0dfb45bbf526c87d9a494ce37318ba3c6da
-      env:
-        - name: MONGODB_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mongodb-user
-              key: MONGODB_PASSWORD
-        - name: MONGODB_USERNAME
-          valueFrom:
-            configMapKeyRef:
-              name: mongodb-user
-              key: MONGODB_USER
-        - name: MONGODB_DATABASE
-          valueFrom:
-            configMapKeyRef:
-              name: mongodb-user
-              key: MONGODB_DATABASE
-        - name: MONGODB_SERVER
-          valueFrom:
-            configMapKeyRef:
-              name: mongodb-user
-              key: MONGODB_SERVER
+    - image: tomaskral/guestbook-backend@sha256:c85c65e0a40a7645c89a31d887be66e9090df7af49d24a6a4b463f90283a2933
+      envFrom:
+        - secretRef:
+            name: mongodb-user
+        - configMapRef:
+            name: mongodb-user
 services:
 - portMappings:
   - 3000
