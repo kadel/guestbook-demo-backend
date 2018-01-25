@@ -1,6 +1,6 @@
 name: mongodb
 
-deployments:
+deploymentConfigs:
 - containers:
     - image: centos/mongodb-32-centos7
       envFrom:
